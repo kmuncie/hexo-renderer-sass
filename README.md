@@ -1,10 +1,6 @@
 [Sass] renderer plugin for [Hexo]
 =================================
 
-[![npm version](https://badge.fury.io/js/hexo-renderer-sass.svg)](https://badge.fury.io/js/hexo-renderer-sass)
-[![Build Status](https://travis-ci.org/kmuncie/hexo-renderer-sass.svg?branch=master)](https://travis-ci.org/kmuncie/hexo-renderer-sass)
-[![Coverage Status](https://coveralls.io/repos/github/kmuncie/hexo-renderer-sass/badge.svg?branch=master)](https://coveralls.io/github/kmuncie/hexo-renderer-sass?branch=master)
-
 > A hexo plugin for sass
 
 ## Install
