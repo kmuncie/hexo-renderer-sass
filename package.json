@@ -1,11 +1,11 @@
 {
   "name": "hexo-renderer-sass",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Sass renderer plugin for Hexo",
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "git://github.com/knksmith57/hexo-renderer-sass.git"
+    "url": "git://github.com/kmuncie/hexo-renderer-sass.git"
   },
   "keywords": [
     "hexo",
@@ -13,26 +13,26 @@
     "scss",
     "renderer"
   ],
-  "author": "Kyle Smith <knksmith57@gmail.com>",
+  "author": "Kevin Muncie <kevin@kmuncie.com>",
   "license": "MIT",
   "scripts": {
     "lint": "standard",
     "test": "mocha test/index.js",
-    "test-cov": "istanbul cover --print both _mocha -- test/index.js"
+    "test-cov": "nyc npm run test"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 16"
   },
   "dependencies": {
-    "node-sass": "^4.5.3"
+    "sass": "1.54.2"
   },
   "peerDependencies": {
-    "hexo": ">= 3"
+    "hexo": ">= 6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "standard": "^8.6.0"
+    "chai": "4.3.6",
+    "mocha": "10.0.0",
+    "nyc": "15.1.0",
+    "standard": "17.0.0"
   }
 }

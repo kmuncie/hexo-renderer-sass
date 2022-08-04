@@ -22,11 +22,10 @@ describe('Sass renderer', function () {
       '}'
     ].join('\n')
 
-    var result = r('scss').call(ctx, { text: body }, {})
+    var result = r('scss').call(ctx, { text: body }, {});
     result.should.eql([
-      '.foo {',
-      '  color: red; }'
-    ].join('\n') + '\n')
+      '.foo{color:red}'
+    ].join('\n'))
   })
 
   it('default: sass syntax', function () {
@@ -38,13 +37,12 @@ describe('Sass renderer', function () {
 
     var result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
-      '.foo {',
-      '  color: red; }'
-    ].join('\n') + '\n')
+      '.foo{color:red}'
+    ].join('\n'))
   })
 
-  it('outputStyle compressed: scss syntax', function () {
-    ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
+  it('outputStyle expanded: scss syntax', function () {
+    ctx.theme.config = { sass: { outputStyle: 'expanded' } }
 
     var body = [
       '$color: red;',
@@ -55,12 +53,14 @@ describe('Sass renderer', function () {
 
     var result = r('scss').call(ctx, { text: body }, {})
     result.should.eql([
-      '.foo{color:red}'
-    ].join('\n') + '\n')
+      '.foo {',
+      '  color: red;',
+      '}'
+    ].join('\n'))
   })
 
-  it('outputStyle compressed: sass syntax', function () {
-    ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
+  it('outputStyle expanded: sass syntax', function () {
+    ctx.theme.config = { sass: { outputStyle: 'expanded' } }
 
     var body = [
       '$color: red',
@@ -70,12 +70,14 @@ describe('Sass renderer', function () {
 
     var result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
-      '.foo{color:red}'
-    ].join('\n') + '\n')
+      '.foo {',
+      '  color: red;',
+      '}'
+    ].join('\n'))
   })
 
   it('supports root config: scss syntax', function () {
-    ctx.config = { node_sass: { outputStyle: 'compressed' } }
+    ctx.config = { sass: { outputStyle: 'compressed' } }
     ctx.theme.config = {}
 
     var body = [
@@ -88,11 +90,11 @@ describe('Sass renderer', function () {
     var result = r('scss').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
-    ].join('\n') + '\n')
+    ].join('\n'))
   })
 
   it('supports root config: sass syntax', function () {
-    ctx.config = { node_sass: { outputStyle: 'compressed' } }
+    ctx.config = { sass: { outputStyle: 'compressed' } }
     ctx.theme.config = {}
 
     var body = [
@@ -104,35 +106,7 @@ describe('Sass renderer', function () {
     var result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
-    ].join('\n') + '\n')
+    ].join('\n'))
   })
 
-  it('throw when error occurs: scss syntax', function () {
-    ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
-    ctx.config = {}
-
-    var body = [
-      '.foo {',
-      '  color: $color;',
-      '}'
-    ].join('\n')
-
-    should.Throw(function () {
-      return r('scss').call(ctx, { text: body }, {})
-    }, 'Undefined variable: "$color".')
-  })
-
-  it('throw when error occurs: sass syntax', function () {
-    ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
-    ctx.config = {}
-
-    var body = [
-      '.foo',
-      '  color: $color'
-    ].join('\n')
-
-    should.Throw(function () {
-      return r('sass').call(ctx, { text: body }, {})
-    }, 'Undefined variable: "$color".')
-  })
 })
