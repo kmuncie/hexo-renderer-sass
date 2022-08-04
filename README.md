@@ -36,6 +36,9 @@ the following locations using a least-specific-first order:
 
 ## ♥︎
 Questions, comments, concerns?
+* [@kmuncie](https://github.com/kmuncie)
+
+Thanks to the original developer of this package
 * [@knksmith57](https://github.com/knksmith57)
 
 
