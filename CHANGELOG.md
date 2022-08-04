@@ -1,3 +1,9 @@
+#### 0.5.0 (2022-8-03)
+
+- Move to Node v16
+- Bump all packages to latest
+- Update from `node-sass` to `sass`
+
 #### 0.3.2 (2017-6-15)
 
 ##### Chores
