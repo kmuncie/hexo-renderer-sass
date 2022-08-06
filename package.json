@@ -27,7 +27,7 @@
     "sass": "1.54.2"
   },
   "peerDependencies": {
-    "hexo": ">= 6"
+    "hexo": ">= 5"
   },
   "devDependencies": {
     "chai": "4.3.6",
